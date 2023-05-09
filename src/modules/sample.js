@@ -1,6 +1,6 @@
 // api를 사용해서 데이터를 받아와 상태를 관리
 
-import { handleAction } from "redux-actions";
+import { handleActions } from "redux-actions";
 import * as api from '../lib/api';
 
 // 액션 타입 선언 한 요청당 3개씩
@@ -31,6 +31,7 @@ export const getPost = id => async dispatch => {
             error: true
         });
         throw e;
+        
     }
 };
 
@@ -61,7 +62,7 @@ const initialState = {
     users: null
 };
 
-const sample = handleAction(
+const sample = handleActions(
     {
         [GET_POST]: state => ({
             ...state,
